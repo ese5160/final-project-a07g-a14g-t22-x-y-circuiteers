@@ -1,9 +1,72 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.1">
   <diagram name="Page-1" id="q0YlzpY5cYFcawaDlYfO">
-    <mxGraphModel>
+    <mxGraphModel dx="867" dy="507" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="MJCE12vv8ProtMnRVOZp-1" value="InitializeSerialConsole()" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="40" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-2" value="usart_read_buffer_job&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;(&amp;amp;usart_instance, (uint8_t *)&amp;amp;latestRx, 1)&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="100" width="400" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-3" value="User types a character on the terminal" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="170" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-4" value="UART hardware (SERCOM) receives the character" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="230" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-5" value="ASF ISR calls usart_read_callback() in SerialConsole.c" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="290" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-6" value="Character stored in cbufRx (backed by rxCharacterBuffer, size 512)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="380" width="400" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-7" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="MJCE12vv8ProtMnRVOZp-1" target="MJCE12vv8ProtMnRVOZp-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="320" as="sourcePoint" />
+            <mxPoint x="510" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-8" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="MJCE12vv8ProtMnRVOZp-2" target="MJCE12vv8ProtMnRVOZp-3">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="450" y="70" as="sourcePoint" />
+            <mxPoint x="450" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-9" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MJCE12vv8ProtMnRVOZp-3" target="MJCE12vv8ProtMnRVOZp-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="80" as="sourcePoint" />
+            <mxPoint x="460" y="120" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-10" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="439.67" y="250" as="sourcePoint" />
+            <mxPoint x="439.67" y="290" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-11" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="MJCE12vv8ProtMnRVOZp-5" target="MJCE12vv8ProtMnRVOZp-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="480" y="100" as="sourcePoint" />
+            <mxPoint x="480" y="140" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-13" value="Calls" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="430" y="70" width="60" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-14" value="Waiting for a character" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="140" width="140" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-15" value="Serial line transmits the char" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="200" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-16" value="Hardware triggers interrupt (SERCOM4_IRQn)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="260" width="270" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="MJCE12vv8ProtMnRVOZp-17" value="&lt;div&gt;(Inside usart_read_callback())&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; Retrieve char into variable latestRx&lt;/div&gt;&lt;div&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp; &amp;nbsp; and call:&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;circular_buf_put(cbufRx, latestRx)&lt;/span&gt;&lt;/div&gt;" style="text;html=1;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="440" y="330" width="320" height="20" as="geometry" />
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
