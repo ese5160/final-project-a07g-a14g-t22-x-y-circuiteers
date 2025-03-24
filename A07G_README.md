@@ -186,3 +186,7 @@ Like above, for received characters (RX), the callback function is `usart_read_c
 
 ## Debug Logger Module
 We placed the Debug Logger Module in `SerialConsole.c` file with the `LogMessage()` function added. The updated code has already been committed to the GitHub repo.
+
+## Wiretap the convo
+## Complete the CLI
+## Add CLI commands

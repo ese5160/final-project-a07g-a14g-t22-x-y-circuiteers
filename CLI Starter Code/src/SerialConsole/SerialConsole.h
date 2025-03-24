@@ -76,6 +76,7 @@ void DeinitializeSerialConsole(void);
  * @note			Use to send a string of characters to the user via UART
  *****************************************************************************/
 void SerialConsoleWriteString(char * string);
+/*void SerialConsoleWriteString(const char *string);*/
 
 /**
  * @fn			int SerialConsoleReadCharacter(uint8_t *rxChar)

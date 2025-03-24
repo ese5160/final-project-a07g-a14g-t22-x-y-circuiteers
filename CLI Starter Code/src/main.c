@@ -62,6 +62,13 @@ int main(void)
 	// Board Initialization -- Code that initializes the HW and happens only once
 	system_init();
 	InitializeSerialConsole();
+	
+// 	setLogLevel(LOG_ERROR_LVL);
+// 
+// 	LogMessage(LOG_INFO_LVL, "INFO: This should NOT print\r\n");
+// 	LogMessage(LOG_ERROR_LVL, "ERROR: This should print\r\n");
+// 	LogMessage(LOG_FATAL_LVL, "FATAL: Temperature over %d degrees!\r\n", 55);
+
 
 	/* Insert application code here, after the board has been initialized. */
 
@@ -144,3 +151,6 @@ void vApplicationStackOverflowHook(void)
 	while (1)
 		;
 }
+
+
+

@@ -102,6 +102,7 @@ void DeinitializeSerialConsole(void)
  * @param string Pointer to the string to send.
  */
 void SerialConsoleWriteString(char *string)
+/*void SerialConsoleWriteString(const char *string)*/
 {
     if (string != NULL)
     {
@@ -268,3 +269,5 @@ void usart_write_callback(struct usart_module *const usart_module)
 		usart_write_buffer_job(&usart_instance, (uint8_t *)&latestTx, 1);
 	}
 }
+
+
