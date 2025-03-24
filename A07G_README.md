@@ -197,7 +197,7 @@ We placed the Debug Logger Module in `SerialConsole.c` file with the `LogMessage
 
 
 #### 2. Where on the circuit board can you attach / solder to?
-- Use test pads or headers labeled “TX”/“RX” near the EDBG or SAMW25 module.
+- PB10 (TX), PB11 (RX)
 
 #### 3. What are critical settings for the logic analyzer?
 - Protocol: UART (async serial)
