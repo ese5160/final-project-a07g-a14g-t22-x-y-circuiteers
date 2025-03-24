@@ -219,3 +219,4 @@ The capture file is available in the GitHub repo: A07G\Session 0.sal.
 ## Add CLI commands
 - The updated CLI code has already been committed to the GitHub repo.
 - You can find the video in the GitHub repo: A07G\CLI_Video. You can check it through the [Google Drive link](https://drive.google.com/file/d/1Hw9iqbLmp7xXRjGftwgZRFhNBUX6lBS_/view?usp=drive_link).
+![CLI2](A07G/CLI2.png) 
