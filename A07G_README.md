@@ -211,6 +211,7 @@ The capture file is available in the GitHub repo: A07G\Session 0.sal.
 
 ## Complete the CLI
 - The updated CLI code has already been committed to the GitHub repo.
+![CLI](A07G/CLI.png) 
 
 ## Add CLI commands
 - The updated CLI code has already been committed to the GitHub repo.
