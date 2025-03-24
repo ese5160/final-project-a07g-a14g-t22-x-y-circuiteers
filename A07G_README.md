@@ -132,14 +132,23 @@ The target users are individuals who require emotional companionship, such as ch
 
 ## Understanding the Starter Code
 #### 1. What does “InitializeSerialConsole()” do? In said function, what is “cbufRx” and “cbufTx”? What type of data structure is it? 
-`InitializeSerialConsole()`:
-- Sets up UART (SERCOM3) at 115200 baud 8N1
-- Initializes two circular buffers for handling UART communication:
-    - `cbufRx`: Buffer for receiving incoming characters
-    - `cbufTx`: Buffer for characters to be transmitted
-`cbufRx` and `cbufTx` are circular buffer structures, initialized using `circular_buffer_init()` from `circular_buffer.c` (located in src/ASF/common/utils/).
+- `InitializeSerialConsole()` sets up the UART by:
+    - Initializes two circular buffers for handling UART communication:
+        - `cbufRx`: Buffer for receiving incoming characters
+        - `cbufTx`: Buffer for characters to be transmitted
+    - Configuring USART: It sets the baud rate, pin multiplexing, and other USART settings.
+    - Registering callbacks: It registers asynchronous callbacks for UART read and write operations.
+    - Starting the read process: It initiates a read job so that incoming characters are continuously captured.
+
+- `cbufRx` and `cbufTx` are circular buffers implemented using a structure (`circular_buf_t`) that contains:
+    - A pointer to the buffer array.
+    - Head and tail indices.
+    - Maximum capacity.
+    - A flag to indicate if the buffer is full.
 
 #### 2. How are “cbufRx” and “cbufTx” initialized? Where is the library that defines them (please list the *C file they come from). 
+- Both buffers are initialized using the `circular_buffer_init()` function.
+- The circular buffer implementation is defined in `circular_buffer.c`, located in src/SerialConsole/circular_buffer.c.
 #### 3. Where are the character arrays where the RX and TX characters are being stored at the end? Please mention their name and size.
 #### 4. Where are the interrupts for UART character received and UART character sent defined? 
 #### 5. What are the callback functions that are called when: a. A character is received? (RX) b. A character has been sent? (TX) 
