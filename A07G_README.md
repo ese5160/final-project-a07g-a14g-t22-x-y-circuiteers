@@ -118,10 +118,12 @@ The target users are individuals who require emotional companionship, such as ch
 ---
 
 ### 3. Block Diagram
-![Block Diagram](blockdiagram.png)
+![Block Diagram](A07G/blockdiagram.png)
 
 ### 4. Flowcharts
 #### Sensor Reading Task Flowchart
-![Sensor_Reading_Task_Flowchart](Sensor_Reading_Task_Flowchart.png) 
+![Sensor_Reading_Task_Flowchart](A07G/Sensor_Reading_Task_Flowchart.png) 
 #### System Control Task Flowchart
-![System_Control_Task_Flowchart](System_Control_Task_Flowchart.png) 
+![System_Control_Task_Flowchart](A07G/System_Control_Task_Flowchart.png) 
+#### Wi-Fi Task Flowchart
+![Wi-Fi_Task_Flowchart](A07G/Wi-Fi_Task_Flowchart.png) 
