@@ -114,3 +114,8 @@ The target users are individuals who require emotional companionship, such as ch
 - The software shall communicate with a computer via Wi-Fi and perform the following functions:  
   - **Data Upload**: Synchronize environmental data and robot status with the computer every **1 second**.  
   - **Control Commands**: Execute remote commands for basic movements and special actions.  
+
+---
+
+### 3. Block Diagram
+![Block Diagram](blockdiagram.png)
