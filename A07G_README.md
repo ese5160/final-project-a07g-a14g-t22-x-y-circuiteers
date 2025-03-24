@@ -95,7 +95,7 @@ The target users are individuals who require emotional companionship, such as ch
 
 
 ##### **SRS 02 – Obstacle Detection and Avoidance**  
-- The software shall sample distance data from the ultrasonic sensor every **100 ms**, with a precision of **±0.1 cm**.  
+- The software shall sample distance data from the ultrasonic sensor every **1s**, with a precision of **±0.1 cm**.  
 - If an obstacle is detected within **10 cm**, the avoidance algorithm shall adjust the robot’s trajectory to prevent collisions.
 
 
@@ -121,4 +121,7 @@ The target users are individuals who require emotional companionship, such as ch
 ![Block Diagram](blockdiagram.png)
 
 ### 4. Flowcharts
+#### Sensor Reading Task Flowchart
+![Sensor_Reading_Task_Flowchart](Sensor_Reading_Task_Flowchart.png) 
+#### System Control Task Flowchart
 ![System_Control_Task_Flowchart](System_Control_Task_Flowchart.png) 
