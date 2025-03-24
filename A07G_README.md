@@ -129,3 +129,21 @@ The target users are individuals who require emotional companionship, such as ch
 ![Wi-Fi_Task_Flowchart](A07G/Wi-Fi_Task_Flowchart.png) 
 #### Actuator Control Task Flowchart
 ![Actuator_Control_Task_Flowchart](A07G/Actuator_Control_Task_Flowchart.png) 
+
+## Understanding the Starter Code
+#### 1. What does “InitializeSerialConsole()” do? In said function, what is “cbufRx” and “cbufTx”? What type of data structure is it? 
+`InitializeSerialConsole()`:
+- Sets up UART (SERCOM3) at 115200 baud 8N1
+- Initializes two circular buffers for handling UART communication:
+    - `cbufRx`: Buffer for receiving incoming characters
+    - `cbufTx`: Buffer for characters to be transmitted
+`cbufRx` and `cbufTx` are circular buffer structures, initialized using `circular_buffer_init()` from `circular_buffer.c` (located in src/ASF/common/utils/).
+
+#### 2. How are “cbufRx” and “cbufTx” initialized? Where is the library that defines them (please list the *C file they come from). 
+#### 3. Where are the character arrays where the RX and TX characters are being stored at the end? Please mention their name and size.
+#### 4. Where are the interrupts for UART character received and UART character sent defined? 
+#### 5. What are the callback functions that are called when: a. A character is received? (RX) b. A character has been sent? (TX) 
+#### 6. Explain what is being done on each of these two callbacks and how they relate to the cbufRx and cbufTx buffers. 
+#### 7. Draw a diagram that explains the program flow for UART receive – starting with the user typing a character and ending with how that characters ends up in the circular buffer “cbufRx”. Please make reference to specific functions in the starter code. 
+#### 8. Draw a diagram that explains the program flow for the UART transmission – starting from a string added by the program to the circular buffer “cbufTx” and ending on characters being shown on the screen of a PC (On Teraterm, for example). Please make reference to specific functions in the starter code. 
+#### 9. What is done on the function “startStasks()” in main.c? How many threads are started?
