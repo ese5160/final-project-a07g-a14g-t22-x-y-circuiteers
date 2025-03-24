@@ -1,9 +1,99 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36" version="26.1.1">
   <diagram name="Page-1" id="Vvjl2o5w8dbl24iopemM">
-    <mxGraphModel>
+    <mxGraphModel dx="867" dy="507" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1100" pageHeight="1700" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-1" value="SerialConsoleWriteString(string)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="40" width="490" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-2" value="For each character in string:&lt;div&gt;circular_buf_put(cbufTx, char)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="100" width="490" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-3" value="After adding all characters" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="150" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-4" value="&amp;nbsp;Check if TX channel is free:&lt;div&gt;&lt;div&gt;usart_get_job_status(&amp;amp;usart_instance,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;USART_TRANSCEIVER_TX) == STATUS_OK&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="180" width="490" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-5" value="&lt;div&gt;circular_buf_get(cbufTx,&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;amp;latestTx)&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="260" width="490" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-6" value="&lt;div&gt;usart_write_buffer_job(&amp;amp;usart_instance,&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;&amp;nbsp;(uint8_t *)&amp;amp;latestTx, 1)&amp;nbsp;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="320" width="490" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-7" value="UART Hardware Transmits" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="380" width="490" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-8" value="Transmission complete → ISR triggers" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="440" width="490" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-9" value="Inside usart_write_callback():&lt;div&gt;if (circular_buf_get(cbufTx, &amp;amp;latestTx) != -1):&lt;/div&gt;&lt;div&gt;then call:&amp;nbsp; &amp;nbsp;usart_write_buffer_job(&amp;amp;usart_instance,&amp;nbsp;(uint8_t *)&amp;amp;latestTx, 1)&amp;nbsp;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="500" width="490" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-10" value="Repeat until cbufTx is empty" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="490" y="560" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-11" value="UART line sends characters to PC" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="590" width="490" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-12" value="PC Terminal (TeraTerm) Displays" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="250" y="650" width="490" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-13" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-1" target="2hXm9wtOdkDmJkxifYPH-2">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="250" as="sourcePoint" />
+            <mxPoint x="510" y="200" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-14" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-2" target="2hXm9wtOdkDmJkxifYPH-4">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="460" y="330" as="sourcePoint" />
+            <mxPoint x="500" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-15" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-4" target="2hXm9wtOdkDmJkxifYPH-5">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="290" as="sourcePoint" />
+            <mxPoint x="550" y="240" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-5" target="2hXm9wtOdkDmJkxifYPH-6">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="360" as="sourcePoint" />
+            <mxPoint x="550" y="310" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-17" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-6" target="2hXm9wtOdkDmJkxifYPH-7">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="430" as="sourcePoint" />
+            <mxPoint x="550" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-18" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-7" target="2hXm9wtOdkDmJkxifYPH-8">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="470" as="sourcePoint" />
+            <mxPoint x="550" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-19" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-8" target="2hXm9wtOdkDmJkxifYPH-9">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="520" as="sourcePoint" />
+            <mxPoint x="550" y="470" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-20" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-9" target="2hXm9wtOdkDmJkxifYPH-11">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="600" as="sourcePoint" />
+            <mxPoint x="550" y="550" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="2hXm9wtOdkDmJkxifYPH-21" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="2hXm9wtOdkDmJkxifYPH-11" target="2hXm9wtOdkDmJkxifYPH-12">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="500" y="660" as="sourcePoint" />
+            <mxPoint x="550" y="610" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
       </root>
     </mxGraphModel>
   </diagram>
