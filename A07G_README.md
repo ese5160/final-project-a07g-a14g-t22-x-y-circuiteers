@@ -149,8 +149,16 @@ The target users are individuals who require emotional companionship, such as ch
 #### 2. How are “cbufRx” and “cbufTx” initialized? Where is the library that defines them (please list the *C file they come from). 
 - Both buffers are initialized using the `circular_buffer_init()` function.
 - The circular buffer implementation is defined in `circular_buffer.c`, located in src/SerialConsole/circular_buffer.c.
+
 #### 3. Where are the character arrays where the RX and TX characters are being stored at the end? Please mention their name and size.
+The RX characters are stored in `rxCharacterBuffer` and the TX characters in `txCharacterBuffer`. Both arrays have a size of 512 bytes as defined by `RX_BUFFER_SIZE` and `TX_BUFFER_SIZE` respectively.
+
 #### 4. Where are the interrupts for UART character received and UART character sent defined? 
+The UART receive and transmit interrupts are handled via callback functions defined in `SerialConsole.c`:
+- `usart_read_callback` is registered for the "buffer received" event (UART character received).
+- `usart_write_callback` is registered for the "buffer transmitted" event (UART character sent).
+These callbacks are registered and enabled in the `configure_usart_callbacks()` function using the ASF functions `usart_register_callback()` and `usart_enable_callback()`.
+
 #### 5. What are the callback functions that are called when: a. A character is received? (RX) b. A character has been sent? (TX) 
 #### 6. Explain what is being done on each of these two callbacks and how they relate to the cbufRx and cbufTx buffers. 
 #### 7. Draw a diagram that explains the program flow for UART receive – starting with the user typing a character and ending with how that characters ends up in the circular buffer “cbufRx”. Please make reference to specific functions in the starter code. 
