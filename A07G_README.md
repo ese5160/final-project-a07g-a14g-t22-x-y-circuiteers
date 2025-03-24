@@ -210,4 +210,8 @@ We placed the Debug Logger Module in `SerialConsole.c` file with the `LogMessage
 The capture file is available in the GitHub repo: A07G\Session 0.sal.
 
 ## Complete the CLI
+- The updated CLI code has already been committed to the GitHub repo.
+
 ## Add CLI commands
+- The updated CLI code has already been committed to the GitHub repo.
+- You can find the video in the GitHub repo: A07G\Video. You can check it through the [Google Drive link](https://drive.google.com/file/d/1Ie9YNTWS4gHkAEGqTTM1MYii0V5L_AWS/view?usp=sharing).
