@@ -203,8 +203,11 @@ We placed the Debug Logger Module in `SerialConsole.c` file with the `LogMessage
 - Sample Rate: ~4× baud rate (e.g., 500 kS/s).
 
 ### Photo of Hardware Connections
+![Hardware Connections](A07G/hardware_connections.jpg) 
 ### Screenshot of Decoded Message
+![Decoded Message](A07G/Decoded_Message.png) 
 ### Capture File
+The capture file is available in the GitHub repo: A07G\Session 0.sal.
 
 ## Complete the CLI
 ## Add CLI commands
