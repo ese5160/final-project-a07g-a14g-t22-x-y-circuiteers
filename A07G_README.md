@@ -188,5 +188,22 @@ Like above, for received characters (RX), the callback function is `usart_read_c
 We placed the Debug Logger Module in `SerialConsole.c` file with the `LogMessage()` function added. The updated code has already been committed to the GitHub repo.
 
 ## Wiretap the convo
+### Answer Questions
+#### 1. What nets must you attach the logic analyzer to? (Check how the firmware sets up the UART in SerialConsole.c!)
+- TX (SAMW25 → EDBG_RX), RX (SAMW25 ← EDBG_TX), and GND.
+
+#### 2. Where on the circuit board can you attach / solder to?
+- Use test pads or headers labeled “TX”/“RX” near the EDBG or SAMW25 module.
+
+#### 3. What are critical settings for the logic analyzer?
+- Protocol: UART (async serial)
+- Baud: 115200 (8N1)
+- Voltage: 3.3 V
+- Sample Rate: ~4× baud rate (e.g., 500 kS/s).
+
+### Photo of Hardware Connections
+### Screenshot of Decoded Message
+### Capture File
+
 ## Complete the CLI
 ## Add CLI commands
