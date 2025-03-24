@@ -101,7 +101,7 @@ The target users are individuals who require emotional companionship, such as ch
 
 ##### **SRS 03 – Environmental Data Processing and Alerts**  
 - The software shall collect environmental data, including temperature, humidity, and air quality readings, at least every **1 second**.  
-- If any measured parameter exceeds predefined thresholds (e.g., **humidity < 30% or > 70%**), the system shall:  
+- If any measured parameter exceeds predefined thresholds (e.g., **humidity < 30% or > 70%**, **Temperature > 35°C**, **VOC > 600 ppb** ), the system shall:  
   - Notify the user with a buzzer alert.  
   - Display a message on the screen (e.g., “Current humidity: XX%. The room is dry, please drink more water.”).  
 
@@ -119,3 +119,6 @@ The target users are individuals who require emotional companionship, such as ch
 
 ### 3. Block Diagram
 ![Block Diagram](blockdiagram.png)
+
+### 4. Flowcharts
+![System_Control_Task_Flowchart](System_Control_Task_Flowchart.png) 
