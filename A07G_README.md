@@ -160,7 +160,21 @@ The UART receive and transmit interrupts are handled via callback functions defi
 These callbacks are registered and enabled in the `configure_usart_callbacks()` function using the ASF functions `usart_register_callback()` and `usart_enable_callback()`.
 
 #### 5. What are the callback functions that are called when: a. A character is received? (RX) b. A character has been sent? (TX) 
+Like above, for received characters (RX), the callback function is `usart_read_callback`. For transmitted characters (TX), the callback function is `usart_write_callback`. These functions are registered in the `configure_usart_callbacks()` function in `SerialConsole.c`.
+
 #### 6. Explain what is being done on each of these two callbacks and how they relate to the cbufRx and cbufTx buffers. 
+- `usart_read_callback`:
+    - Invoked when a character is received.
+    - It reads the character (stored in latestRx) and adds it to the RX circular buffer (cbufRx), then typically re-initiates another read.
+
+- `usart_write_callback`:
+    - Invoked after a character is sent.
+    - It fetches the next character from the TX circular buffer (cbufTx) and initiates its transmission, continuing until the buffer is empty.
+
+- The relationship with the circular buffers:
+    - `cbufRx`: Acts as a FIFO queue for received characters, allowing the main program to read them later using `SerialConsoleReadCharacter()`.
+    - `cbufTx`: Acts as a FIFO queue for characters to be transmitted, processed one at a time by the transmit callback.
+
 #### 7. Draw a diagram that explains the program flow for UART receive – starting with the user typing a character and ending with how that characters ends up in the circular buffer “cbufRx”. Please make reference to specific functions in the starter code. 
 #### 8. Draw a diagram that explains the program flow for the UART transmission – starting from a string added by the program to the circular buffer “cbufTx” and ending on characters being shown on the screen of a PC (On Teraterm, for example). Please make reference to specific functions in the starter code. 
 #### 9. What is done on the function “startStasks()” in main.c? How many threads are started?
