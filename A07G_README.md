@@ -190,6 +190,7 @@ We placed the Debug Logger Module in `SerialConsole.c` file with the `LogMessage
 ## Wiretap the convo
 ### Answer Questions
 #### 1. What nets must you attach the logic analyzer to? (Check how the firmware sets up the UART in SerialConsole.c!)
+- The pinmux settings (e.g., `pinmux_pad2`, `pinmux_pad3`) map to TX and RX lines.
 - TX (SAMW25 → EDBG_RX), RX (SAMW25 ← EDBG_TX), and GND.
 
 #### 2. Where on the circuit board can you attach / solder to?
