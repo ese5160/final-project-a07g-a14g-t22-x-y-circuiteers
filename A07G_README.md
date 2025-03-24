@@ -191,7 +191,10 @@ We placed the Debug Logger Module in `SerialConsole.c` file with the `LogMessage
 ### Answer Questions
 #### 1. What nets must you attach the logic analyzer to? (Check how the firmware sets up the UART in SerialConsole.c!)
 - The pinmux settings (e.g., `pinmux_pad2`, `pinmux_pad3`) map to TX and RX lines.
-- TX (SAMW25 → EDBG_RX), RX (SAMW25 ← EDBG_TX), and GND.
+- PB10 (SERCOM4 PAD2) and PB11 (SERCOM4 PAD3) are used for the EDBG UART lines.
+- #define EDBG_CDC_SERCOM_PINMUX_PAD2 PINMUX_PB10D_SERCOM4_PAD2
+- #define EDBG_CDC_SERCOM_PINMUX_PAD3 PINMUX_PB11D_SERCOM4_PAD3
+
 
 #### 2. Where on the circuit board can you attach / solder to?
 - Use test pads or headers labeled “TX”/“RX” near the EDBG or SAMW25 module.
@@ -215,4 +218,4 @@ The capture file is available in the GitHub repo: A07G\Session 0.sal.
 
 ## Add CLI commands
 - The updated CLI code has already been committed to the GitHub repo.
-- You can find the video in the GitHub repo: A07G\Video. You can check it through the [Google Drive link](https://drive.google.com/file/d/1Ie9YNTWS4gHkAEGqTTM1MYii0V5L_AWS/view?usp=sharing).
+- You can find the video in the GitHub repo: A07G\CLI_Video. You can check it through the [Google Drive link](https://drive.google.com/file/d/1Hw9iqbLmp7xXRjGftwgZRFhNBUX6lBS_/view?usp=drive_link).
