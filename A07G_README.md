@@ -127,3 +127,5 @@ The target users are individuals who require emotional companionship, such as ch
 ![System_Control_Task_Flowchart](A07G/System_Control_Task_Flowchart.png) 
 #### Wi-Fi Task Flowchart
 ![Wi-Fi_Task_Flowchart](A07G/Wi-Fi_Task_Flowchart.png) 
+#### Actuator Control Task Flowchart
+![Actuator_Control_Task_Flowchart](A07G/Actuator_Control_Task_Flowchart.png) 
