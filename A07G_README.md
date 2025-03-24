@@ -183,3 +183,6 @@ Like above, for received characters (RX), the callback function is `usart_read_c
 
 #### 9. What is done on the function “startStasks()” in main.c? How many threads are started?
 `StartTasks()` prints the available heap size, creates the CLI task using FreeRTOS's xTaskCreate(), and then prints the updated heap size. Only one thread (the CLI task) is started in this function.
+
+## Debug Logger Module
+We placed the Debug Logger Module in `SerialConsole.c` file with the `LogMessage()` function added. The updated code has already been committed to the GitHub repo.

@@ -27,6 +27,9 @@
  * Includes
  ******************************************************************************/
 #include "SerialConsole.h"
+#include <stdio.h>         // For vsnprintf
+#include <stdarg.h>        // For va_list, va_start, va_end
+#include <string.h>
 
 /******************************************************************************
  * Defines
@@ -149,10 +152,39 @@ void setLogLevel(enum eDebugLogLevels debugLevel)
 /**
  * @brief Logs a message at the specified debug level.
  */
+/**
+ * @brief Logs a message if its level is >= the current global log level.
+ *
+ * @param level   The log level of this message (INFO, DEBUG, WARNING, etc.)
+ * @param format  The printf-style format string.
+ * @param ...     Additional arguments for the format string.
+ *
+ * This function uses vsnprintf() to format the message into a buffer
+ * and then writes it to the TX circular buffer via SerialConsoleWriteString().
+ * Messages with a level lower than the current log level will not be printed.
+ */
 void LogMessage(enum eDebugLogLevels level, const char *format, ...)
-{
+
     // Todo: Implement Debug Logger
 	// More detailed descriptions are in header file
+
+{
+	// Only log if this message's level >= current debug level
+	if (level < getLogLevel())
+	{
+		return;
+	}
+
+	char buffer[256]; // Temporary buffer to hold formatted string
+
+	// Handle variable arguments
+	va_list args;
+	va_start(args, format);
+	vsnprintf(buffer, sizeof(buffer), format, args);
+	va_end(args);
+
+	// Send the formatted string to the console
+	SerialConsoleWriteString(buffer);
 }
 
 /*
